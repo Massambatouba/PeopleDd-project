@@ -8,7 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Data
 @AllArgsConstructor
@@ -18,8 +20,18 @@ public class Person {
     @Id
     @GeneratedValue
     private Long id;
-    private String firstname;
+    private String firstName;
     private String lastName;
     private LocalDate dob;
     private BigDecimal salary;
+
+    public String getFormattedDOB() {
+        return DateTimeFormatter.ofPattern("MMMM dd, yyyy").format(dob);
+    }
+
+    public String getNumberFormatSALARY() {
+        return NumberFormat.getCurrencyInstance().format(salary);
+    }
+
+
 }
