@@ -17,11 +17,11 @@ public class peopleController {
     @GetMapping
     public String getPeople(Model model) {
         List<Person> people = List.of(new Person(10l, "Jack", "Snake", LocalDate.of(1950, 1, 1), new BigDecimal("50000")),
-        new Person(20l, "Sarah", "Smith", LocalDate.of(1960, 2, 1), new BigDecimal("60000")),
-        new Person(30l, "Johnny", "Jackson", LocalDate.of(1970, 3, 1), new BigDecimal("70000")),
-        new Person(40l, "Boddy", "Kim", LocalDate.of(1980, 4, 1), new BigDecimal("80000")),
-        new Person(50l, "Jerry", "McGuire", LocalDate.of(1980, 4, 1), new BigDecimal("80000")),
-        new Person(60l, "Jane", "Smith", LocalDate.of(1980, 4, 1), new BigDecimal("80000"))
+        new Person(null, "Pete", "Smith", LocalDate.of(1960, 2, 1), new BigDecimal("60000")),
+        new Person(null, "Jennifer", "Jackson", LocalDate.of(1970, 3, 1), new BigDecimal("70000")),
+        new Person(null, "Marc", "Kim", LocalDate.of(1980, 4, 1), new BigDecimal("80000")),
+        new Person(null, "Alice", "McGuire", LocalDate.of(1980, 4, 1), new BigDecimal("80000")),
+        new Person(null, "Akire", "Smith", LocalDate.of(1980, 4, 1), new BigDecimal("80000"))
         );
         model.addAttribute("people", people);
         return "people";
