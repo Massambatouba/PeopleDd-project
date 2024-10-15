@@ -22,16 +22,19 @@ public class Person {
     private Long id;
     private String firstName;
     private String lastName;
+    private String email;
     private LocalDate dob;
     private BigDecimal salary;
 
-    public String getFormattedDOB() {
+   /* public String getFormattedDOB() {
         return DateTimeFormatter.ofPattern("MMMM dd, yyyy").format(dob);
     }
 
     public String getNumberFormatSALARY() {
         return NumberFormat.getCurrencyInstance().format(salary);
     }
+
+    */
 
 
 }
