@@ -7,33 +7,42 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="col-md-8 col-sm-10 mx-auto my-5">
+    <div class="col-md-8 col-sm-11 mx-auto my-5">
         <h2>People List</h2>
-        <table class="table table-bordered table-sm">
-            <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">DOB</th>
-                <th scope="col">Salary</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:if="${#lists.isEmpty(people)}">
-                <td th:colspan="6" class="text-center">No Data</td>
-            </tr>
-            <tr th:each="person : ${people}">
-                <th th:text="${person.id}" scope="row"></th>
-                <td th:text="${person.lastName}"></td>
-                <td th:text="${person.firstName}"></td>
-                <td th:text="${person.email}"></td>
-                <td th:text="${person.dob}"></td>
-                <td th:text="${person.salary}"></td>
-            </tr>
-            </tbody>
-        </table>
+        <form method="post">
+            <table class="table table-bordered table-sm">
+                <thead>
+                <tr>
+                    <th scope="col">Select</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col" class="d-sm-none d-md-table-cell">Email</th>
+                    <th scope="col">DOB</th>
+                    <th scope="col">Salary</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${#lists.isEmpty(people)}">
+                    <td th:colspan="6" class="text-center">No Data</td>
+                </tr>
+                <tr th:each="person : ${people}">
+                    <td><input class="form-check-input" type="checkbox" name="selections" th:value="${person.id}"/></td>
+                    <th th:text="${person.id}" scope="row"></th>
+                    <td th:text="${person.lastName}"></td>
+                    <td th:text="${person.firstName}"></td>
+                    <td th:text="${person.email}" class="d-sm-none d-md-table-cell"></td>
+                    <td th:text="${person.dob}"></td>
+                    <td th:text="${person.salary}"></td>
+
+                </tr>
+                </tbody>
+            </table>
+            <button type="submit" name="delete" value="true" class="btn btn-danger mb">Delete</button>
+        </form>
+<people></people>
+
+
         <h2>Person Form</h2>
     <form th:object="${person}" method="post" novalidate>
         <div class="mb-3">
